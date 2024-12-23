@@ -3,21 +3,62 @@
 <head>
 <title>Page Title</title>
 </head>
-<body>
+<style>
+    @font-face{
+        font-family: 'Kanit';
+        src: url('./Kanit/Kanit-Regular.ttf') 
+    }
+    body {
+        font-family: 'Kanit';
+        background-color: wheat;
+        font-size: 14px;
+    }
+    #register{
+        font-size: 2em;
+    }
+   
+    
 
-<h1>Register Form</h1>
-    ชื่อ <input type="text">
-    นามสกุล <input type="text">
-    อายุ <input type="text" min="0" max="100">
+    .header-form{
+        font-weight: 800;
+        display: flex;
+    }
+    .form {
+        display: block;
+    }
+    .gender{
+        display: inline;
+        flex-direction: row-reverse;
+    }
+    .box{
+        background-color: rgb(253, 123, 188);
+        height: 20px;
+        width: 50vh;
+    }
+</style>
+<body>
+    
+<div class="box"></div>
+
+
+<div id="register"> Register Form</div>
+
+
+</div>
+
+
+    <span class="header-form">ชื่อ </span><input  type="text">
+    <span class="header-form">นามสกุล</span> <input  type="text">
+    <span class="header-form">อายุ </span> <input  type="text" min="0" max="100">
     <div>
         เพศ 
-        <div>
+        <div class="gender">
             <input name="gender" type="radio"> ชาย
         </div>
-        <div>
+        <div class="gender">
             <input name="gender" type="radio"> หญิง
         </div>
-        <div>
+        <div class="gender">
         <input name="gender" type="radio"> ไม่ระบุ
         </div>
     </div>
