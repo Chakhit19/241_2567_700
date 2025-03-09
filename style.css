@@ -43,6 +43,12 @@ input.form,textarea{
     width: 50%;
     height: 40px;
 }
+.message{
+    margin-top: 20px;
+    padding: 10px;
+    background-color: aquamarine;
+    display: block;
+}
 .button:hover{
     background-color: #65cd61
     

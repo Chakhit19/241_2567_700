@@ -9,7 +9,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: webdb
     ports:
-      - "8820:3306"
+      - "8830:3306"
     volumes:
       - mysql_data:/var/lib/mysql
     networks:

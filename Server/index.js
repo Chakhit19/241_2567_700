@@ -6,7 +6,9 @@ const app = express();
 
 const port = 8000;
 app.use(bodyParser.json());
+
 app.use(cors());
+
 let users = []
 let conn = null
 
@@ -18,6 +20,28 @@ const initMySQL = async () => {
     database: 'webdb',
     port: 8830
   })
+}
+const validateData = (userData) => {
+  let errors = []
+  if (!userData.firstname) {
+      errors.push = ('กรุณากรอกชื่อ')
+  }
+  if (!userData.lastname) {
+      errors.push = ('กรุณากรอกนามสกุล')
+  }
+  if (!userData.age) {
+      errors.push = ('กรุณากรอกอายุ')
+  }
+  if (!userData.gender) {
+      errors.push = ('กรุณาเลือกเพศ')
+  }
+  if (!userData.interests) {
+      errors.push = ('กรุณาเลือกความสนใจ')
+  }
+  if (!userData.description) {
+      errors.push = ('กรุณากรอกคำอธิบาย')
+  }
+  return errors
 }
 
 // app.get('/testdb', (req, res) => {
@@ -64,26 +88,36 @@ DELETE /user/:id สำหรับลบ users รายคน (ตาม id �
 */ 
 
 // path = GET / users สำหรับ get users ทั้งหมดที่บันทึกไว้
-app.get('/User', async (req, res) => {
-  const result = await conn.query('SELECT * FROM User')
+app.get('/user', async (req, res) => {
+  const result = await conn.query('SELECT * FROM user')
     res.json(result[0])
 })
 
 // path = POST / user สำหรับสร้าง users ใหม่บันทึกเข้าไป
-app.post('/User', async (req, res) => {
+app.post('/user', async (req, res) => {
  
   try {
-    let User = req.body;
-    const results = await conn.query('INSERT INTO User SET ?', User)
+    let user = req.body;
+    const errors = validateData(user)
+    if (errors.length > 0) {
+      //มี error
+      throw {
+          message: 'กรุณากรอกข้อมูลให้ครบถ้วน',
+          errors: errors
+      }
+    }
+    const results = await conn.query('INSERT INTO user SET ?', user)
     res.json({
-      message: 'Create User successfully',
+      message: 'Create user successfully',
       data: results[0]
    })
   }catch (error) {
+    const errorMessage= error.errors || 'something went wrong'
+    const errors = error.errors || []
     console.log('error', error.message)
     res.status(500).json({
-      message:'something went wrong',
-      errorMessage: error.message
+      message:errorMessage,
+      error: errors
     })
   }
 })
@@ -91,10 +125,10 @@ app.post('/User', async (req, res) => {
 
  // path = GET / users /: id สำหรับดึง users รายคนออกมา
 // path = GET / users /: id สำหรับดึง users รายคนออกมา
-app.get('/User/:id', async (req, res) => {
+app.get('/user/:id', async (req, res) => {
   try {
   let id = req.params.id;
-  const result = await conn.query('SELECT * FROM User WHERE id = ?', id)
+  const result = await conn.query('SELECT * FROM user WHERE id = ?', id)
   if (result[0].length == 0) {
     throw { statuscode: 404, message: 'User not found' }
     }
@@ -112,16 +146,16 @@ app.get('/User/:id', async (req, res) => {
 
 
  // path = PUT /user/:id สำหรับดึง users รายคน (ตาม id ที่บันทึกเข้าไป)
- app.put('/User/:id',async (req, res) => {
+ app.put('/user/:id',async (req, res) => {
   try {
     let id = req.params.id;
     let updateUser = req.body;
     const results = await conn.query
-    ('UPDATE User SET? WHERE id = ?',
+    ('UPDATE user SET? WHERE id = ?',
        [updateUser, id]
       )
     res.json({
-      message: 'Create User successfully',
+      message: 'Create user successfully',
       data: results[0]
    })
   }catch (error) {
@@ -136,13 +170,13 @@ app.get('/User/:id', async (req, res) => {
 
 
  //path = DELETE /users/:id สำหรับลบ users รายคน (ตาม id ที่บันทึกเข้าไป)
- app.delete('/User/:id', async (req, res) => {
+ app.delete('/user/:id', async (req, res) => {
   try {
     let id = req.params.id;
     const results = await conn.query(
-      'DELETE from User WHERE id = ?', id)
+      'DELETE from user WHERE id = ?', id)
     res.json({
-      message: 'Delete User successfully',
+      message: 'Delete user successfully',
       data: results[0]
    })
   } catch (error) {
