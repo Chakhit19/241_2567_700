@@ -6,22 +6,37 @@
     <title>Document</title>
 </head>
 <body>
-<div 
-onmouseover="overitem()"
-onmousedown="downitem()"
-onmouseup="upitem()"
->click here</div>
+<div>
+    <h2>สิ่งที่สนใจ</h2>
+    <div id = "content">
+        <!-- สิ่งที่สนใจ -->
+    </div>
     
+</div>
+<input type="checkbox" name="interest" value="กีฬา"> กีฬา
+<input type="checkbox" name="interest" value="ดนตรี"> ดนตรี
+<input type="checkbox" name="interest" value="อาหาร"> อาหาร
+<input type="checkbox" name="interest" value="เทคโนโลยี"> เทคโนโลยี
+<button onclick="SubmitInterest()">แสดงสิ่งที่สนใจ</button>
     <script>
-        function overitem() {
-            console.log('mouse over')
+    function SubmitInterest() {
+        //เลือก checkbox ทั้งหมด
+        let interestDOM = document.querySelectorAll('input[name="interest"]');
+        let contentHTML = '<ul>';
+        //เอาค่าออกมาเฉพาะที่เลือก เอาvalue ออกมาเฉพาะที่เลือกใส่ไว้ที่ array
+        for (let i = 0; i < interestDOM.length; i++) {
+            if (interestDOM[i].checked) {
+                contentHTML += '<li>' + interestDOM[i].value + '</li>';
+            }
         }
-        function downitem() {
-            console.log('mouse down')
-        }
-        function upitem() {
-            console.log('mouse up')
-        }
+        //วนค่าตัวที่เลือกใส่ html กลับไป
+        contentHTML += '</ul>';
+        //console.log(contentHTML);
+
+        //ใส่ HTML ที่สร้างไว้ใน content
+        let contentDOM = document.getElementById('content');
+        contentDOM.innerHTML = contentHTML;
+    }
     </script>
 </body>
 </html>

@@ -4,12 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="user.css">
 </head>
 <body>
-    <a href ="kim.html">Back to register</a>
-    User management page
-    <div id="user"></div>
-    <script> src = "user.js"</script>
-    
+    <a href="kim.html">Back to register</a>
+    <div class="container">
+        <div class="header-back"> User management page </div>
+        <table id="user-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Interests</th>
+                    <th>Description</th>
+                    <th>Change</th>
+            </tr>
+        </thead>
+        <tbody id="user"></tbody>
+            </table>
+            <div id="error-message" class="message danger" style="display:none;"></div> 
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="user.js"></script>
 </body>
 </html>

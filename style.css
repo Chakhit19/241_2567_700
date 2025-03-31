@@ -1,63 +1,116 @@
-@font-face{
+@font-face {
     font-family: 'Kanit';
-    src: url('./Kanit/Kanit-Regular.ttf') 
-}
-body {
-    font-family: 'Kanit';
-    background-color: gray;
-    font-size: 14px;
+    src: url('./Kanit/Kanit-Regular.ttf');
 }
 
-.container{
+body {
+    font-family: 'Kanit';
+    background-color: #d4f7db; /* Pastel green background */
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
     width: 100%;
     max-width: 640px;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgb(126, 212, 130);
-    padding: 20px;
+    background-color: #a8e6cf; /* Pastel green container background */
+    padding: 30px;
     box-sizing: border-box;
+    border-radius: 15px; /* Soft rounded corners */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }
-.header{
-    font-size: 30px;
+
+.header {
+    font-size: 32px;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    color: #4caf50; /* Pastel green header color */
+    font-weight: 600; /* Slightly bolder header */
+    letter-spacing: 1px; /* Slightly spaced out letters */
 }
-.header-form{
+
+.header-form {
     width: 140px;
 }
-.flex{
+
+.flex {
     display: flex;
 }
-.form-input{
-    margin-bottom: 10px;
+
+.form-input {
+    margin-bottom: 15px;
 }
-input.form,textarea{
+
+input.form, textarea {
     border: 1px solid #ccc;
     width: 100%;
+    padding: 10px;
+    border-radius: 8px; /* Rounded input fields */
+    background-color: #fff;
+    color: #555; /* Slightly darker text */
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
 }
-.center{
+
+input.form:focus, textarea:focus {
+    border-color: #65cd61; /* Highlighted border on focus */
+    outline: none; /* No outline */
+}
+
+.center {
     text-align: center;
 }
-.button{
-    border: 1px solid rgb(0, 0, 0);
-    width: 50%;
-    height: 40px;
-}
-.message{
+
+button {
+    border: none;
+    width: 60%;
+    height: 50px;
+    background-color: #b2f7b0; /* Light pastel green button */
+    color: #fff; /* White text */
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 30px; /* Rounded corners */
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
     margin-top: 20px;
-    padding: 10px;
-    background-color: aquamarine;
-    display: block;
 }
-.button:hover{
-    background-color: #65cd61
-    
+
+button:hover {
+    background-color: #65cd61; /* Slightly darker green on hover */
+    transform: scale(1.05); /* Slightly grow the button on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
 }
-@media screen and  (max-width: 768px){
+
+button:focus {
+    outline: none;
+}
+
+.message {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e1f7d6; /* Soft pastel green background for message */
+    color: #333; /* Dark text for contrast */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+@media screen and (max-width: 768px) {
     .flex {
         flex-direction: column;
     }
-    .header{
-        font-size: 24px;
+
+    .header {
+        font-size: 26px;
+    }
+
+    button {
+        width: 80%; /* Make button wider on small screens */
     }
 }

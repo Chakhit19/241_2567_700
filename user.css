@@ -1,0 +1,124 @@
+/* รีเซ็ตค่าเริ่มต้นของ CSS เพื่อให้แสดงผลเหมือนกันทุกเบราว์เซอร์ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* กำหนดโครงสร้างหลักของหน้าเว็บ */
+body {
+    background: linear-gradient(to right, #a8e6cf, #dcedc1);
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* สไตล์ส่วน header */
+header {
+    background: rgba(255, 255, 255, 0.5);
+    color: #333;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* การตั้งค่ากล่องเนื้อหา */
+.container {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+/* ปุ่มที่ดูโมเดิร์น */
+button {
+    background: linear-gradient(135deg, #55efc4, #00cec9);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background: linear-gradient(135deg, #00cec9, #55efc4);
+    transform: scale(1.05);
+}
+
+/* ปุ่ม back to register */
+.back-to-register {
+    margin-top: 50px;
+    text-align: center;
+    width: 100%;
+}
+
+/* ฟอร์มการป้อนข้อมูล */
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    color: #333;
+    font-size: 1rem;
+    outline: none;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #666;
+}
+
+/* ปรับแต่งตาราง */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+th {
+    background: rgba(255, 255, 255, 0.7);
+    font-weight: bold;
+}
+
+tr:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* ปรับแต่ง footer */
+footer {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #333;
+    text-align: center;
+    width: 100%;
+}

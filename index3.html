@@ -1,30 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Page Title</title>
-<style>
-    .button{
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       .button {
         background-color: aquamarine;
         border: 0;
         padding: 10px;
-    }
-    .button:hover{
-        background-color: red
-    }
-    .butoon:active{
-        background-color: blue;
-    }
-    .button:focus{
-        background-color: bisque;
-    }
-    input:focus{
-        background-color: violet;
-    }
-</style>
+       }
+       .button:hover {
+        background-color: blueviolet;
+       }
+       .button:active {
+        background-color: deeppink;
+       }
+       .button:focus {
+        background-color: green;
+       }
+       input:focus {
+        background-color: darksalmon;
+       }
+       .container .item:first-child {
+        background-color: hotpink;
+       }
+       .container .item:nth-child(2) {
+        background-color: rgb(234, 126, 241);
+       }
+       .container .item:last-child {
+        background-color: lightblue;
+       }
+       </style>
 </head>
 <body>
-    <input typ="text">
-    <button class="button">Button</button>
-
+    <!-- :hover =วาง active =คลิก focus= cursor-->
+     <input type="text">
+     <button class="button">Button</button>
+     <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+     </div>
 </body>
 </html>

@@ -1,9 +1,9 @@
-version: '3.7'
 
 services:
   db:
-    image: mysql:5.7
-    container_name: mysql_db
+    image: mysql:8.0
+    platform: linux/amd64
+    container_name: mysql_db_830
     command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -13,27 +13,28 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
     networks:
-      - weblab820
+      - weblab830
     restart: always
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
-    container_name: phpmyadmin
+    container_name: phpmyadmin_830
+    platform: linux/amd64
     environment:
-      PMA_HOST: mysql_db
+      PMA_HOST: db
       PMA_PORT: 3306
       PMA_USER: root
       PMA_PASSWORD: root
     ports:
-      - "8821:80"
+      - "8831:80"
     depends_on:
       - db
     networks:
-      - weblab820
+      - weblab830
     restart: always
 
 networks:
-  weblab820:
+  weblab830:
     driver: bridge
 
 volumes:
